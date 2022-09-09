@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
 
   providers: [
       CredentialProvider({
-        name: 'Sign in',
+        name: 'login',
         credentials: {
           email: { label: "Email", type: "text", placeholder: "jsmith" },
           password: { label: "Password", type: "password" },

@@ -9,10 +9,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id String @id @default(cuid())
-}
-
 // Necessary for Next auth
 
 
@@ -31,6 +27,15 @@ model User {
     password      String
     role          String?
     sessions      Session[]
+}
+
+model Products {
+    id            String    @id @default(cuid())
+    name          String?
+    desc          String?   
+    img           String
+    category      String?
+   
 }
 
 model VerificationToken {
