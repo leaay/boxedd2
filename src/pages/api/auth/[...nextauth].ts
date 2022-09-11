@@ -7,6 +7,13 @@ import { prisma } from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
 import CredentialProvider from "next-auth/providers/credentials";
 
+
+interface credit  {
+  email: string,
+  password: string,
+
+}
+
 export const authOptions: NextAuthOptions = {
 
   // callbacks: {
@@ -29,7 +36,7 @@ export const authOptions: NextAuthOptions = {
     
   // },
 
-
+  
   providers: [
       CredentialProvider({
         name: 'login',
@@ -37,15 +44,24 @@ export const authOptions: NextAuthOptions = {
           email: { label: "Email", type: "text", placeholder: "jsmith" },
           password: { label: "Password", type: "password" },
         },
-        authorize: (credentials , req) => {
-          if(credentials?.email === 'admin' && credentials?.password === '123456'){
-            return{
-              id: 1,
-              name: 'admin',
-              email: 'admin',
+        async authorize(credentials, req) {
+          const user = await prisma.user.findUnique({
+            where: {
+              email: credentials?.email
             }
+          })
+
+          if(user?.email === credentials?.email && user?.password === credentials?.password){
+            return {
+              id: user?.id,
+              email: user?.email,
+              name: user?.name,
+
+            }
+          }else{
+            return null
           }
-          return null
+          
         },
       }),
   ],

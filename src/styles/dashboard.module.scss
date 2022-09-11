@@ -1,0 +1,49 @@
+
+
+.dashboardBody{
+    display: grid;
+    grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
+    justify-items: start;
+    button{
+        grid-column: 2/3;
+    }
+}
+
+.productList{
+    display: grid;
+    grid-column: 2/3;
+    row-gap: 1rem;
+}
+.productItem{
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    gap: 1rem;
+    grid-template-columns: repeat(5, minmax(75px , 1fr));
+    overflow-x: auto;
+    position: relative;
+
+    &:hover > .productItemHover{
+        display: flex;
+    }
+}
+.productItemHover{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.964);
+    column-gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    p{
+        font-weight: 600;
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        &:hover{
+            color: #ffffff;
+        }
+    }
+}

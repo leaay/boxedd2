@@ -25,16 +25,18 @@ model User {
     name          String?
     email         String?   @unique
     password      String
-    role          String?
+    role          String
     sessions      Session[]
 }
 
 model Products {
     id            String    @id @default(cuid())
-    name          String?
-    desc          String?   
+    name          String
+    desc          String   
     img           String
-    category      String?
+    category      String
+    price         Int
+    slug          String   @unique
    
 }
 

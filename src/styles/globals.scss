@@ -8,9 +8,13 @@ body {
 
 a {
   color: inherit;
+  all: unset;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+button{
+  all: unset;
 }
