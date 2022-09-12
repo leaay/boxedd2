@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { useState , ChangeEvent , FormEvent } from "react";
 import styles from '../styles/newProductModal.module.scss'
+import {toast} from 'react-toastify'
 
 interface propsInterface {
     close:(i:boolean)=>void,
@@ -11,12 +12,18 @@ interface propsInterface {
 const NewProductModal = ({close , add}:propsInterface) => {
 
 
-    const [name , setName] = useState('')
-    const [price , setPrice] = useState('')
-    const [desc , setDesc] = useState('')
-    const [img , setImg] = useState('')
-    const [category , setCategory] = useState('')
-    const [slug , setSlug] = useState('')
+    const [name , setName] = useState<string | null>(null)
+    const [price , setPrice] = useState<string | null>(null)
+    const [desc , setDesc] = useState<string | null>(null)
+    const [img , setImg] = useState<string | null>(null)
+    const [category , setCategory] = useState<string | null>(null)
+    const [slug , setSlug] = useState<string | null>(null)
+
+    const notify = ()=>{
+        toast.error("Error Notification !", {
+            position: toast.POSITION.TOP_LEFT
+          });
+    }
     
 
     function handleSubmit(e:FormEvent<HTMLFormElement>){
@@ -34,21 +41,21 @@ const NewProductModal = ({close , add}:propsInterface) => {
         add.mutate(product)
 
         add.onSuccess = ()=>{
-            setCategory('')
-            setDesc('')
-            setImg('')
-            setName('')
-            setPrice('')
-            setSlug('')
+            setCategory(null)
+            setDesc(null)
+            setImg(null)
+            setName(null)
+            setPrice(null)
+            setSlug(null)
             close(false)
         }
     }
 
     return(
         <div className={styles.modalBody}>
-            <button className={styles.btn} onClick={()=>close(false)}>close</button>
+            <button className={styles.btn} onClick={()=>close(false)}><img src='/x.svg' /></button>
             {add.isSuccess && <p>added</p>}
-            {add.isError && <p>error</p>}
+            {add.isError && notify()}
             <h1>ADD NEW PRODUCT</h1>
             <form onSubmit={handleSubmit} className={styles.newForm}>
                 <input onChange={({target}:ChangeEvent<HTMLInputElement>)=>setName(target.value)} type="text" placeholder="name"/>

@@ -7,6 +7,8 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import type { AppRouter } from "../server/router";
 import "../styles/globals.scss";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyApp: AppType = ({
   Component,
@@ -15,6 +17,7 @@ const MyApp: AppType = ({
   return (
     <SessionProvider>
       <Component {...pageProps} />
+      <ToastContainer/>
     </SessionProvider>
   );
 };
