@@ -19,11 +19,9 @@ const NewProductModal = ({close , add}:propsInterface) => {
     const [category , setCategory] = useState<string | null>(null)
     const [slug , setSlug] = useState<string | null>(null)
 
-    const notify = ()=>{
-        toast.error("Error Notification !", {
-            position: toast.POSITION.TOP_LEFT
-          });
-    }
+
+
+    const isActive = name === null || price === null || desc === null || img === null || category === null || slug === null
     
 
     function handleSubmit(e:FormEvent<HTMLFormElement>){
@@ -37,25 +35,19 @@ const NewProductModal = ({close , add}:propsInterface) => {
             category,
             slug
         }
-        console.log(product)
+        
         add.mutate(product)
-
-        add.onSuccess = ()=>{
-            setCategory(null)
-            setDesc(null)
-            setImg(null)
-            setName(null)
-            setPrice(null)
-            setSlug(null)
-            close(false)
+        
+        if(add.isSuccess){
+            console.log('succes')
         }
+       
     }
 
     return(
         <div className={styles.modalBody}>
             <button className={styles.btn} onClick={()=>close(false)}><img src='/x.svg' /></button>
-            {add.isSuccess && <p>added</p>}
-            {add.isError && notify()}
+
             <h1>ADD NEW PRODUCT</h1>
             <form onSubmit={handleSubmit} className={styles.newForm}>
                 <input onChange={({target}:ChangeEvent<HTMLInputElement>)=>setName(target.value)} type="text" placeholder="name"/>
@@ -64,7 +56,7 @@ const NewProductModal = ({close , add}:propsInterface) => {
                 <input onChange={({target}:ChangeEvent<HTMLInputElement>)=>setImg(target.value)} type="text" placeholder="img (only one link from i.ibb.co )"/>
                 <input onChange={({target}:ChangeEvent<HTMLInputElement>)=>setCategory(target.value)} type="text" placeholder="category"/>
                 <input onChange={({target}:ChangeEvent<HTMLInputElement>)=>setSlug(target.value)} type="text" placeholder="slug (must be unique)"/>
-                <button className={styles.btn2} type="submit">and new item</button>
+                <button className={styles.btn2} disabled={isActive} type="submit">and new item</button>
             </form>
         </div>
     )

@@ -7,6 +7,7 @@ import { trpc } from "../utils/trpc";
 import styles from '../styles/dashboard.module.scss'
 import NewProductModal from '../componets/newProductModal'
 import Test from "../componets/test";
+import {toast} from 'react-toastify'
  const Dashboard:NextPage = () => {
 
     const {status , data} = useSession({
@@ -15,30 +16,47 @@ import Test from "../componets/test";
 
     const [newModal , setNewModal] = useState(false)
 
-    const all = trpc.useQuery(['products.all'],{ refetchOnWindowFocus: false })
+    const notifyDeleted = ()=>{
+        toast.success("PRODUCT HAS BEEN DELETED", {
+            position: toast.POSITION.TOP_RIGHT
+          });
+    }
+
+    const notifyError = ()=>{
+        toast.error("SOMETHING WENT WRONG!", {
+            position: toast.POSITION.TOP_LEFT
+          });
+    }
+
+    const notifySucces = ()=>{
+        toast.success("PRODUCT HAS BEEN ADDED SUCCESFULY", {
+            position: toast.POSITION.TOP_LEFT
+          });
+    }
+
+
+    const all = trpc.useQuery(['products.all'],{ 
+        refetchOnWindowFocus: false,
+       
+     })
 
     const add = trpc.useMutation(['auth.add-product'],{
         onSuccess:()=>{
             all.refetch()
+            notifySucces()
+        },
+        onError:()=>{
+            notifyError()
         }
     })
     const deleteItem = trpc.useMutation(['auth.delete-product'],{
         onSuccess:()=>{
             all.refetch()
+            notifyDeleted()
         }
     })
 
-    async function addItem(){
-        add.mutate({
-            name:'BOXY HOODIE (BLUE)',
-            price: 199,
-            desc: 'OUR SIGNATURE BOXY HOODIE.',
-            img: 'https://i.ibb.co/hY9fsfM/123.jpg',
-            category: 'hoodie',
-            slug: 'BOXY-HOODIE-BLUE4'
 
-        })
-    }
 
     async function handleDelete(id:string){
         
@@ -53,10 +71,10 @@ import Test from "../componets/test";
 
     return(
         <div className={styles.dashboardBody}>
-        
+     
         <button onClick={()=>setNewModal(true)}>new boxy hoodie</button>
         <button onClick={() => signOut({callbackUrl: 'http://localhost:3000'})}>Sign out</button>
-        {add.isSuccess && <p>added</p>}
+    
             <div className={styles.productList}>
                
                 {all.data?.map((item:any) => <div key={item.id} className={styles.productItem}>

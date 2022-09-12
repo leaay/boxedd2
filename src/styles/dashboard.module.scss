@@ -3,7 +3,9 @@
 .dashboardBody{
     display: grid;
     grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
-    justify-items: start;
+
+    
+    justify-items: center;
     button{
         grid-column: 2/3;
     }

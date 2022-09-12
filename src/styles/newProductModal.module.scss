@@ -42,14 +42,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    background-color: black;
+    color: white;
     padding: .2rem .5rem;
     cursor: pointer;
     &:hover{
-        outline: solid 1px black;
+        outline: solid 1px rgb(255, 255, 255);
     }
     &:focus{
-        outline: solid 1px black;
+        outline: solid 1px rgb(255, 255, 255);
+    }
+
+    &:disabled{
+        background-color: gray;
+        cursor: not-allowed;
     }
 
 }
