@@ -1,0 +1,44 @@
+
+.body{
+    display: grid;
+    grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
+    padding: 1rem 0 4rem;
+    
+}
+.wrapper{
+    grid-column: 2/3;
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+}
+.productItem{
+
+    height: min-content;
+    height: auto;
+    display: grid;
+    grid-template-rows: min-content min-content;
+    cursor: pointer;
+    transition: transform ease .2s;
+
+    &:hover{
+        transform: scale(1.01);
+        outline: none;
+    }
+    &:focus{
+        outline: solid 1px black;
+        transform: scale(1.01);
+    }
+
+    img{
+        object-fit: cover;
+    }
+
+}
+.itemNameWrapper{
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+    align-items: center;
+    
+}

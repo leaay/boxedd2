@@ -1,0 +1,53 @@
+
+.nav{
+    display: grid;
+    grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
+}
+.navWrapper{
+    width: 100%;
+    grid-column: 2/3;
+    padding: 1rem 0rem;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 2222;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    button{
+        cursor: pointer;
+    }
+}
+
+.logo{
+    cursor: pointer;
+}
+.link{
+    cursor: pointer;
+    max-height: 40px;
+    &:hover{
+        box-shadow: 0px 1px 0 0px black;
+    }
+    &:focus{
+        box-shadow: 0px 1px 0 0px black;
+    }
+    
+}
+.activeLink{
+
+    position: relative;
+    
+    &:after{
+        content: '';
+        position: absolute;
+        display: block;
+        bottom: -20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35%;
+        height: 2px;
+        background-color: black;
+       
+    }
+    
+}

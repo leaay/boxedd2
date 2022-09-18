@@ -9,15 +9,18 @@ import type { AppRouter } from "../server/router";
 import "../styles/globals.scss";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Layout from '../componets/Layout'
 
 const MyApp: AppType = ({
   Component,
-  pageProps: { session, ...pageProps },
+  pageProps: { ...pageProps },
 }) => {
   return (
     <SessionProvider>
-      <Component {...pageProps} />
-      <ToastContainer/>
+      <Layout>
+          <Component {...pageProps} />
+          <ToastContainer/>
+      </Layout>
     </SessionProvider>
   );
 };

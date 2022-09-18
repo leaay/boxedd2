@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { trpc } from "../utils/trpc";
-import styles from "./index.module.css";
+import useBearStore from "../zustand/store";
+
 import { signIn, useSession } from "next-auth/react"
 
 const Home: NextPage = () => {
@@ -12,6 +12,8 @@ const Home: NextPage = () => {
 
   console.log(session)
 
+ 
+
   return (
     <>
       <Head>
@@ -20,7 +22,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <Link href={'/dashboard'}>dashboard</Link>
+        <Link className="link1" href={'/dashboard'}>dashboard</Link>
         <p onClick={()=>signIn()}>login</p>
 
     </>

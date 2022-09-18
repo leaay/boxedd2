@@ -24,13 +24,13 @@ import {toast} from 'react-toastify'
 
     const notifyError = ()=>{
         toast.error("SOMETHING WENT WRONG!", {
-            position: toast.POSITION.TOP_LEFT
+            position: toast.POSITION.TOP_RIGHT
           });
     }
 
     const notifySucces = ()=>{
         toast.success("PRODUCT HAS BEEN ADDED SUCCESFULY", {
-            position: toast.POSITION.TOP_LEFT
+            position: toast.POSITION.TOP_RIGHT
           });
     }
 
