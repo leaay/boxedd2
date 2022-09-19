@@ -6,7 +6,8 @@ import styles from '../../styles/productPage.module.scss'
 import useMedia from "../../hooks/useMedia";
 import Head from "next/head";
 import useCartStore from "../../zustand/store";
-
+import Spiner from "../../componets/Spiner";
+import {toast} from 'react-toastify'
 
 const ProductPage:NextPage = () => {
 
@@ -18,6 +19,17 @@ const ProductPage:NextPage = () => {
         img:string,
         slug:string
 
+    }
+
+    const notifySucces = ()=>{
+        toast.success("PRODUCT HAS BEEN ADDED SUCCESFULY", {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 1000,
+            hideProgressBar: true,
+            pauseOnHover: false,
+           
+            icon: ({theme, type}) =>  <img src="/success.svg"/>
+          });
     }
 
 
@@ -38,7 +50,7 @@ const ProductPage:NextPage = () => {
 
     if(isLoading){
         return(
-            <p>loading..</p>
+            <Spiner />
         )
     }
 
@@ -61,14 +73,15 @@ const ProductPage:NextPage = () => {
         <div className={styles.productBody}>
             <div className={styles.productWrapper}>
                 {isDesktop ? null : <h2>{data?.name}</h2>}
-                <Image className={styles.img} layout="responsive" src={data?.img as string} width={100} height={100} />
+                <Image blurDataURL="/blur.jpg" placeholder="blur" className={styles.img} layout="responsive" src={data?.img as string} width={100} height={100} />
                 <div className={styles.info}>
                     <p>{data?.desc}</p>
-                    <p>{data?.price} PLN</p>
-                    <button onClick={()=>addItem(data , cart)} className="btn1">add</button>
+                    <p className={styles.price}>{data?.price} PLN</p>
+                    <button onClick={()=>{addItem(data , cart);notifySucces()}} className="btn1">add</button>
 
                 </div>
             </div>
+         
         </div>
     </>
     )

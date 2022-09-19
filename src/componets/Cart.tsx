@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/future/image"
 import Link from "next/link"
 import styles from '../styles/cart.module.scss'
 import useCartStore from "../zustand/store";
@@ -21,6 +21,9 @@ interface item{
 const Cart = ({close}:prop) => {
 
     const cartItems = useCartStore((state:any) => state.cart);
+    const removeItem = useCartStore((state:any) => state.removeItem);
+    const addItem = useCartStore((state:any) => state.addItem);
+    const minusOne = useCartStore((state:any) => state.minusOne);
     
 
     return(
@@ -31,16 +34,20 @@ const Cart = ({close}:prop) => {
 
                 {cartItems.length === 0 && <p className={styles.empty}>Cart is empty</p>}
                 {cartItems.length > 0 && cartItems.map((item:item)=>(<div className={styles.cartItem} key={item.id}>
-                    <Link  href={`/products/${item.slug}`} passHref><a><Image  height={120} width={100} src={item.img}/></a></Link>
+                    <Link  href={`/products/${item.slug}`} passHref><a><Image height={120} width={100} alt="item-img"  src={item.img}/></a></Link>
                     <div className={styles.cartItemDetail}>
                         <p>{item.name}</p>
                         <div className={styles.itemValue}>
                             <p>{item.price} PLN</p>
-                            <button>+</button>
-                            <button>-</button>
-                            <button>d</button>
+
+                            <button className={styles.cartValueBtn} onClick={()=>addItem(item , cartItems)}><Image src={'/plus.svg'} alt="add" width={11} height={11} /></button>
+
+                            <button className={styles.cartValueBtn} onClick={()=>minusOne(item)}><Image src={'/minus.svg'} alt="less" width={11} height={11} /></button>
+
+                            <button className={styles.cartValueBtn} onClick={()=>removeItem(item)}><Image src={'/bin.svg'} alt="delete" width={11} height={11} /></button>
+
                         </div>
-                        <p>quantity_{item.quantity}</p>
+                        <p className={styles.quantity}>quantity_{item.quantity}</p>
                     </div>
                 </div>))}
 

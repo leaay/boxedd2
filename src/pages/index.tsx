@@ -10,8 +10,7 @@ const Home: NextPage = () => {
 
   const session = useSession()
 
-  console.log(session)
-
+ 
  
 
   return (

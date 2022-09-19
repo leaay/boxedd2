@@ -3,6 +3,7 @@ import { trpc } from "../../utils/trpc";
 import Image from "next/image";
 import Link from "next/link";
 import styles from '../../styles/products.module.scss'
+import Spiner from "../../componets/Spiner";
 
 
 const Products:NextPage = () => {
@@ -23,7 +24,7 @@ const Products:NextPage = () => {
 
     if(isLoading){
         return(
-            <p>loading..</p>
+            <Spiner/>
         )
     }
 
@@ -33,7 +34,7 @@ const Products:NextPage = () => {
         )
     }
 
-    console.log(data)
+
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
