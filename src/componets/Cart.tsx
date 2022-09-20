@@ -28,9 +28,11 @@ const Cart = ({close}:prop) => {
 
     return(
         <FocusTrap active={cartItems.length > 0 ? true : false}>
-        <div id="cart" tabIndex={1} onClick={()=>close(false)} className={styles.full}>
+        <div id="cart"  tabIndex={1} onClick={()=>close(false)} className={styles.full}>
 
             <div onClick={(e)=>e.stopPropagation()} className={styles.cartBody}>
+                <button className={`${styles.cartValueBtn} ${styles.closeBtn}`}  onClick={()=>close(false)}><Image src={'/plus.svg'} alt="add" width={11} height={11} /></button>
+
 
                 {cartItems.length === 0 && <p className={styles.empty}>Cart is empty</p>}
                 {cartItems.length > 0 && cartItems.map((item:item)=>(<div className={styles.cartItem} key={item.id}>
@@ -50,6 +52,18 @@ const Cart = ({close}:prop) => {
                         <p className={styles.quantity}>quantity_{item.quantity}</p>
                     </div>
                 </div>))}
+
+                {
+                cartItems.length > 0 && 
+
+                <div className={styles.summary}>
+                    <p>total: {cartItems.reduce((acc:number , item:item)=> acc + item.price * item.quantity , 0)} PLN <span>* vat included</span></p>
+                    <button className="btn1"> pay </button>
+                </div>  
+                
+                }
+
+                
 
             </div>
                 

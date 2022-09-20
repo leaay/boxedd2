@@ -51,3 +51,27 @@
     }
     
 }
+.cart{
+    position: relative;
+    height:20px;
+    z-index: 2;
+
+
+}
+.cartCount{
+    
+    position: absolute;
+    display: flex;
+    top:-25%;
+    left: -25%;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    color: white;
+    opacity: .8;
+    font-size: .5rem;
+    border-radius: 50%;
+    background-color:#333333;
+    
+}
