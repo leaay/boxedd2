@@ -11,7 +11,7 @@
 }
 
 .cartBody{
-    width: 75%;
+    width: 85%;
     max-width: 450px;
     background-color: white;
     isolation: isolate;
@@ -64,8 +64,11 @@
 }
 .closeBtn{
     position: absolute;
-    right: .3rem;
+    left:.3rem;   
+    background-color: white; 
     top: .3rem;
+    z-index: 2222;
+    padding: .1rem;
 }
 
 .cartItemDetail{
