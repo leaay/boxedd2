@@ -1,0 +1,56 @@
+.Cwrapper{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+}
+.slide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    img{
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.nav{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+
+}
+
+.navActive{
+    background-color: white;
+    width: 1rem;
+    aspect-ratio: 1;
+    transition: background-color .3s ease-in-out;
+    &:focus{
+        outline: solid 1px black;
+    }
+}
+.navNormal{
+    background-color: white;
+    
+    width: .3rem;
+    height: .3rem;
+
+    &:focus{
+        outline: solid 1px black;
+    }
+
+}

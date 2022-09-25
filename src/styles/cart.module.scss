@@ -116,3 +116,18 @@
         right: -15%;
     }
 }
+
+.nav{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    div{
+        background-color: black;
+        outline: solid 2px white;
+        width: 1.5rem;
+        aspect-ratio: 1;
+    }
+
+}

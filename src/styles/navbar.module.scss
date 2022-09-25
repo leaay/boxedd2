@@ -4,7 +4,10 @@
     grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
     position: sticky;
     top: 0;
+    background-color: aquamarine;
     z-index: 2222;
+    width: 100%;
+    transition: ease-in .2s background-color;
 }
 .navWrapper{
     width: 100%;
@@ -13,7 +16,7 @@
     display: flex;
 
     
-    background-color: white;
+   
     justify-content: space-between;
     align-items: center;
     button{
