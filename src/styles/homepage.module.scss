@@ -3,7 +3,8 @@
     background-image: url('/fabric.png');
     background-repeat: no-repeat;
     background-color: #ffffff;
-    
+    min-height: 100vh;
+    align-content: center;
     background-position: 400px 0;
     display: grid;
     grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
@@ -53,18 +54,54 @@
 
 }
 
+.links{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    .linksBody{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(192, 192, 192, 0.389);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+       
+        color: white;
+        h2{
+            font-weight: 300;
+        }
+    }
+}
+
+
+.splineWrapper{
+
+    width: 100%;
+    height: 100%;
+}
+
+
 @media (min-width:460px){
     .aboutus{
+        font-size: 20px;
         background-position: calc(100% + 200px) 0;
     }
 }
 
 @media (min-width:960px){
+    .aboutus{
+        gap: 4rem;
+    }
     .aboutTextBox{
         display: grid;
         grid-template-columns: minmax(1em , 1fr) min-content  minmax(200px ,1200px)  minmax(1em , 1fr);
         grid-template-rows: max-content max-content;
-
+        
         h3,h1{
             grid-column: 2/4;
             grid-row: 1/2;

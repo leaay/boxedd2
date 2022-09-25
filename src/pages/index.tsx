@@ -5,6 +5,7 @@ import Link from "next/link";
 import Carousel from "../componets/Carousel";
 import useMedia from "../hooks/useMedia";
 import styles from '../styles/homepage.module.scss'
+import Spline from '@splinetool/react-spline';
 
 const Home: NextPage = () => {
 
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Carousel items={photos} />
+
       <div className={styles.aboutus}>
         <div className={styles.aboutTextBox}>
           <h1>ABOUT US</h1>
@@ -70,6 +72,22 @@ const Home: NextPage = () => {
             Our clothes are manufactured from the highest quality materials imported from premium suppliers. Before material enters production its repeatedly tested for its durability. Moreover all of our products are pre-washed so they will not shrink. CUBBY products will serve for years - we are known for high quality and longevity.
             </p>
         </div>
+        
+       
+        
+      </div>
+      <div className={styles.links}> 
+
+          <div className={styles.splineWrapper}>
+            <Spline scene="https://prod.spline.design/POUafAQ4O7hLTVmW/scene.splinecode" />
+          </div>
+          <div className={styles.linksBody}>
+
+              <h2>HOODIES</h2>
+              <h2>TSHIRTS</h2>
+              <h2>ACCESORIES</h2>
+
+          </div>
       </div>
     </>
   );
