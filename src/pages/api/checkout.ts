@@ -1,4 +1,4 @@
-const stripe = require("stripe")(process.env.NEXT_PUBLIC_SECRET_KEY);
+import stripe = require("stripe")(process.env.NEXT_PUBLIC_SECRET_KEY);
 
 interface item{
     id: string;
