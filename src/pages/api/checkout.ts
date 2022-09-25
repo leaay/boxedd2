@@ -1,6 +1,5 @@
-const stripe = require("stripe");
+const stripe = require('stripe')(process.env.NEXT_PUBLIC_SECRET_KEY)
 
-stripe(process.env.NEXT_PUBLIC_SECRET_KEY)
 
 
 interface item{
