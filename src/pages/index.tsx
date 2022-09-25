@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
+import {lazy , Suspense} from "react";
 import Image from "next/future/image";
 import Head from "next/head";
 import Link from "next/link";
 import Carousel from "../componets/Carousel";
 import useMedia from "../hooks/useMedia";
 import styles from '../styles/homepage.module.scss'
-import Spline from '@splinetool/react-spline';
+
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const Home: NextPage = () => {
 
@@ -79,7 +81,10 @@ const Home: NextPage = () => {
       <div className={styles.links}> 
 
           <div className={styles.splineWrapper}>
-            <Spline scene="https://prod.spline.design/POUafAQ4O7hLTVmW/scene.splinecode" />
+            <Suspense fallback={<p>loading..</p>}>
+              <Spline scene="https://prod.spline.design/POUafAQ4O7hLTVmW/scene.splinecode" />
+            </Suspense>
+            
           </div>
           <div className={styles.linksBody}>
 
