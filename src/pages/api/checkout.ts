@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
 const stripe = require('stripe')(process.env.NEXT_PUBLIC_SECRET_KEY)
 
 
