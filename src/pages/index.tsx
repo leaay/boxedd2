@@ -7,7 +7,7 @@ import Carousel from "../componets/Carousel";
 import useMedia from "../hooks/useMedia";
 import styles from '../styles/homepage.module.scss'
 
-const Spline = lazy(() => import('@splinetool/react-spline'));
+// const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const Home: NextPage = () => {
 
@@ -71,7 +71,7 @@ const Home: NextPage = () => {
               </div>
           }
           <p className={styles.text2}>
-            Our clothes are manufactured from the highest quality materials imported from premium suppliers. Before material enters production its repeatedly tested for its durability. Moreover all of our products are pre-washed so they will not shrink. CUBBY products will serve for years - we are known for high quality and longevity.
+            Our clothes are manufactured from the highest quality materials imported from premium suppliers. Before material enters production its repeatedly tested for its durability. Moreover all of our products are pre-washed so they will not shrink. BOXEDD products will serve for years - we are known for high quality and longevity.
             </p>
         </div>
         
@@ -80,12 +80,11 @@ const Home: NextPage = () => {
       </div>
       <div className={styles.links}> 
 
-          <div className={styles.splineWrapper}>
+          {/* <div className={styles.splineWrapper}>
             <Suspense fallback={<p>loading..</p>}>
               <Spline scene="https://prod.spline.design/POUafAQ4O7hLTVmW/scene.splinecode" />
             </Suspense>
-            
-          </div>
+          </div> */}
           <div className={styles.linksBody}>
 
               <h2>HOODIES</h2>

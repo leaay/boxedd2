@@ -1,6 +1,7 @@
 .aboutus{
     padding: 2rem 0;
     background-image: url('/fabric.png');
+    background-size: auto 100% ;    
     background-repeat: no-repeat;
     background-color: #ffffff;
     min-height: 100vh;
@@ -58,15 +59,18 @@
     position: relative;
     width: 100%;
     height: 100vh;
+    background-image: url('/bg1.png');
 
+    background-size: auto;
+    background-size: cover;
+    background-position: bottom;
     .linksBody{
-        position: absolute;
-        left: 0;
-        top: 0;
+
         width: 100%;
         height: 100%;
         background-color: rgba(192, 192, 192, 0.389);
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 4rem;
@@ -95,6 +99,7 @@
 
 @media (min-width:960px){
     .aboutus{
+        margin: 5rem 0;
         gap: 4rem;
     }
     .aboutTextBox{
@@ -108,6 +113,7 @@
         }
 
         p{
+            font-size: 18px;
             grid-column: 3/4;
             grid-row: 2/3;
         }
@@ -117,4 +123,15 @@
         }
 
     }
+    .text1,.text2{
+        max-width: 700px;
+    }
+    .links{
+        .linksBody{
+            flex-direction: row;
+           
+        }
+    }
+
+
 }
