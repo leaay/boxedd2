@@ -6,6 +6,7 @@ import Link from "next/link";
 import Carousel from "../componets/Carousel";
 import useMedia from "../hooks/useMedia";
 import styles from '../styles/homepage.module.scss'
+import Newsletter from "../componets/Newsletter";
 
 // const Spline = lazy(() => import('@splinetool/react-spline'));
 
@@ -93,6 +94,7 @@ const Home: NextPage = () => {
 
           </div>
       </div>
+      <Newsletter />
     </>
   );
 };

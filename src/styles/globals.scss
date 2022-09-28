@@ -17,7 +17,8 @@ a {
 * {
   box-sizing: border-box;
 }
-button{
+button,input{
+  font-family: 'Poppins', sans-serif;
   all: unset;
   cursor: pointer;
 }
@@ -55,6 +56,32 @@ button{
   &:focus{
     outline: solid 2px black;
   }
+
+}
+
+
+.btn2{
+  padding: .5rem 1rem ;
+  font-size: .8rem;
+  width: max-content;
+  outline: solid 2px rgb(200, 200, 200);
+  color: rgb(110, 109, 109);
+
+  &:hover{
+    outline: solid 2px black;
+  }
+  &:focus{
+    outline: solid 2px black;
+  }
+  &:active{
+    outline: solid 1px black;
+    color: black;
+  }
+}
+
+.btn2:active{
+  outline: solid 1px black;
+  color: black;
 }
 
 .spiner{
