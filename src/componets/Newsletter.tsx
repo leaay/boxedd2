@@ -27,7 +27,7 @@ const Newsletter = () => {
            
                 <div className={styles.formBody}>
                         <input onChange={({target}:ChangeEvent<HTMLInputElement>)=>setEmail(target.value)}  type="email" placeholder="Your email address" />
-                        <button disabled={isActive} className="btn2">Subscribe</button>
+                        <button disabled={isActive} className="btn1">Subscribe</button>
                 </div>
             </div>
         </div>

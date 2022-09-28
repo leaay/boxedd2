@@ -24,12 +24,15 @@
         transition: outline .2s ease-in-out;
 
         &:focus{
-            outline: solid 1px black;
+            box-shadow: 0px 2px 0 0px black;
         }
         &:hover{
-            outline: solid 1px black;
+            box-shadow: 0px 2px 0 0px black;
         }
     }
+
+
+
 }
 .formBody{
     display: flex;

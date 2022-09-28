@@ -55,7 +55,7 @@ const Home: NextPage = () => {
           }
 
 
-          <p className={styles.text2}>Our clothes are manufactured from the highest quality materials imported from premium suppliers. Before material enters production its repeatedly tested for its durability. Moreover all of our products are pre-washed so they will not shrink. CUBBY products will serve for years - we are known for high quality and longevity.</p>
+          <p className={styles.text2}>Our clothes are manufactured from the highest quality materials imported from premium suppliers. Before material enters production its repeatedly tested for its durability. Moreover all of our products are pre-washed so they will not shrink. BOXEDD products will serve for years - we are known for high quality and longevity.</p>
 
         </div>
         <div className={styles.aboutTextBox}>
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
               </div>
           }
           <p className={styles.text2}>
-            Our clothes are manufactured from the highest quality materials imported from premium suppliers. Before material enters production its repeatedly tested for its durability. Moreover all of our products are pre-washed so they will not shrink. BOXEDD products will serve for years - we are known for high quality and longevity.
+          After materials pass the quality tests, they enter the sewing room. We only use services of trustworthy polish sewing rooms with many years of experience. Prevailing conditions are subjected to our personal verification - starting from sterility to respect for labour rights. BOXEDD is an ethical brand and all of our actions come in peace with values embraced by us. Sustainability and awareness are just part of them.
             </p>
         </div>
         

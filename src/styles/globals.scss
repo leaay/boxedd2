@@ -56,6 +56,10 @@ button,input{
   &:focus{
     outline: solid 2px black;
   }
+  &:disabled{
+    outline: solid 2px rgb(200, 200, 200);
+    color: rgb(110, 109, 109);
+  }
 
 }
 
@@ -64,8 +68,7 @@ button,input{
   padding: .5rem 1rem ;
   font-size: .8rem;
   width: max-content;
-  outline: solid 2px rgb(200, 200, 200);
-  color: rgb(110, 109, 109);
+
 
   &:hover{
     outline: solid 2px black;
@@ -77,6 +80,7 @@ button,input{
     outline: solid 1px black;
     color: black;
   }
+
 }
 
 .btn2:active{
