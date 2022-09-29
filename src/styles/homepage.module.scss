@@ -11,6 +11,7 @@
     grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
     row-gap: 2rem;
     justify-items: center;
+    justify-content: space-around;
     h3{
         font-weight: 400;
     }
@@ -21,7 +22,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
+    align-items: flex-start;
     
 }
 
@@ -39,7 +40,7 @@
         width: 1px;
         height: 100%;
         background-color: black;
-        left: -2rem;
+        left: -1rem;
     }
 }
 .text2{
@@ -131,6 +132,13 @@
         .linksBody{
             flex-direction: row;
            
+        }
+    }
+    .text1{
+
+        &::before{
+            
+            left: -2rem;
         }
     }
 
