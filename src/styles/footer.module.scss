@@ -1,0 +1,48 @@
+
+
+
+
+.footer{
+    width: 100%;
+    padding: 4rem;
+    background-color: rgb(210, 210, 210);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    h5{
+        font-size: 1.4rem;
+        font-weight: 300;
+    }
+}
+
+.sm{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    cursor: pointer;
+
+    a{
+        max-height: 24px;
+
+        &:hover{
+            scale: 1.1;
+        }
+        &:focus{
+            outline: solid 1px black;
+        }
+    }
+
+
+
+    &:after{
+        content: '';
+        display: block;
+        width: 1px;
+        height: 200%;
+        position: absolute;
+        left: -1rem;
+        top: -50%;
+        background-color: black;
+    }
+}

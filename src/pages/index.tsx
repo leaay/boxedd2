@@ -3,6 +3,7 @@ import {lazy , Suspense} from "react";
 import Image from "next/future/image";
 import Head from "next/head";
 import Link from "next/link";
+import Footer from "../componets/Footer";
 import Carousel from "../componets/Carousel";
 import useMedia from "../hooks/useMedia";
 import styles from '../styles/homepage.module.scss'
@@ -95,6 +96,7 @@ const Home: NextPage = () => {
           </div>
       </div>
       <Newsletter />
+      <Footer />
     </>
   );
 };
