@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { trpc } from "../utils/trpc";
 import styles from '../styles/dashboard.module.scss'
 import NewProductModal from '../componets/newProductModal'
-import Test from "../componets/test";
+
 import {toast} from 'react-toastify'
  const Dashboard:NextPage = () => {
 
@@ -35,7 +35,7 @@ import {toast} from 'react-toastify'
     }
 
 
-    const all = trpc.useQuery(['products.all'],{ 
+    const all = trpc.useQuery(['products.all' , 'all'],{ 
         refetchOnWindowFocus: false,
        
      })

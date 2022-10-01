@@ -8,6 +8,7 @@ import Carousel from "../componets/Carousel";
 import useMedia from "../hooks/useMedia";
 import styles from '../styles/homepage.module.scss'
 import Newsletter from "../componets/Newsletter";
+import HomeLinks from "../componets/HomeLinks";
 
 // const Spline = lazy(() => import('@splinetool/react-spline'));
 
@@ -80,21 +81,8 @@ const Home: NextPage = () => {
        
         
       </div>
-      <div className={styles.links}> 
 
-          {/* <div className={styles.splineWrapper}>
-            <Suspense fallback={<p>loading..</p>}>
-              <Spline scene="https://prod.spline.design/POUafAQ4O7hLTVmW/scene.splinecode" />
-            </Suspense>
-          </div> */}
-          <div className={styles.linksBody}>
-
-              <h2>HOODIES</h2>
-              <h2>TSHIRTS</h2>
-              <h2>ACCESORIES</h2>
-
-          </div>
-      </div>
+      <HomeLinks />
       <Newsletter />
       <Footer />
     </>

@@ -4,8 +4,17 @@ import { z } from "zod";
 
 export const productRouter = createRouter()
 .query('all',{
-    async resolve({ctx}){
-        return await ctx.prisma.products.findMany()
+    input: z.string(),
+    async resolve({ctx, input}) {
+        if(input === 'all'){
+            return await ctx.prisma.products.findMany()
+        }
+
+        return await ctx.prisma.products.findMany({
+            where: {
+                category: input
+            }
+        })
     }
 })
 .query('find-one',{
@@ -18,6 +27,20 @@ export const productRouter = createRouter()
             where:{
                 slug:input
             },
+        })
+    }
+})
+.query('find-category',{
+
+    async resolve({ctx }){
+
+        return await ctx.prisma.products.findMany({
+            select:{
+                category:true,
+                
+            },
+            distinct:['category']
+
         })
     }
 })

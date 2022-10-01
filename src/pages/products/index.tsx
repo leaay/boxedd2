@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from '../../styles/products.module.scss'
 import Spiner from "../../componets/Spiner";
+import { useRouter } from "next/router";
+import { useEffect , useState } from "react";
 
 
 const Products:NextPage = () => {
@@ -16,10 +18,17 @@ const Products:NextPage = () => {
             img:string,
             slug:string
     }
+    const [getAllCategory , setgetAllCategory] = useState<string | any>('all')
+    const router = useRouter()
+    console.log(router.query)
+    const {category} = router.query
+
+    useEffect(()=>{setgetAllCategory(category)},[category])
 
 
-    const {data,error,isLoading} = trpc.useQuery(['products.all'],{ 
+    const {data,error,isLoading} = trpc.useQuery(['products.all' , getAllCategory ],{ 
         refetchOnWindowFocus: false,
+
      })
 
     if(isLoading){
