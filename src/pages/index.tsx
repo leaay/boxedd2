@@ -84,7 +84,7 @@ const Home: NextPage = () => {
 
       <HomeLinks />
       <Newsletter />
-      <Footer />
+
     </>
   );
 };

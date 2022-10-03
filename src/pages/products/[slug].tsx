@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import { useRouter } from "next/router";
 import { trpc } from "../../utils/trpc";
-import Image from "next/image";
+import Image from "next/future/image";
 import styles from '../../styles/productPage.module.scss'
 import useMedia from "../../hooks/useMedia";
 import Head from "next/head";
@@ -34,11 +34,8 @@ const ProductPage:NextPage = () => {
 
 
     const router = useRouter()
-
     const isDesktop = useMedia('(min-width: 960px)');
-
     const thisPageSlug = router.query.slug
-
     const cart = useCartStore((state:any) => state.cart);
     const addItem = useCartStore((state:any) => state.addItem);
 
@@ -73,7 +70,7 @@ const ProductPage:NextPage = () => {
         <div className={styles.productBody}>
             <div className={styles.productWrapper}>
                 {isDesktop ? null : <h2>{data?.name}</h2>}
-                <Image blurDataURL="/blur.jpg" placeholder="blur" className={styles.img} layout="responsive" src={data?.img as string} width={100} height={100} />
+                <Image alt="product-img" blurDataURL="/blur.png" placeholder="blur" className={styles.img} src={data?.img as string} width={400} height={600} />
                 <div className={styles.info}>
                     <p>{data?.desc}</p>
                     <p className={styles.price}>{data?.price} PLN</p>
