@@ -34,7 +34,7 @@ const Products:NextPage = () => {
 
     const router = useRouter()
 
-    function hel(item:string){
+    function handleCategory(item:string){
         setGetAllCategory({...getAllCategory , cat:item }),
         setShowCategories(false)
     }
@@ -96,12 +96,13 @@ const Products:NextPage = () => {
                   { showFilters && <div  className={styles.catDropdown}>
                         <button   onClick={()=>setShowCategories(!showCategories)}>categories</button>
 
-                        { showCategories && <div className={styles.catItems}>
-
-                            {cat.data?.map((item,index)=><button onClick={()=>hel(item.category)}  key={index}>
+                        { showCategories && 
+                        <div className={styles.catItems}>
+                          <button onClick={()=>handleCategory('all')}>all</button>  
+                        {cat.data?.map((item,index)=><button onClick={()=>handleCategory(item.category)}  key={index}>
                                 {item.category}
-                            </button>)}
-                            
+                        </button>)}
+                        
                         </div>}
                         
                     </div>  }
