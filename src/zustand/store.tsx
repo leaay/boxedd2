@@ -12,6 +12,7 @@ interface c {
 }
 
 type store = {
+
     cart:c[],
     addItem:(data:c, cart:c[]) => void,
     minusOne:(data:c) => void,
@@ -20,6 +21,7 @@ type store = {
 
 
 const useCartStore = create<store>((set) => ({
+
   cart: [],
   newCartItem: {},
   addItem(data , cart){

@@ -37,8 +37,27 @@
 
     }
 
+    .catDropdown{
+        position: relative;
+    }
+
+    .catItems{
+        outline: solid 1px BLACK;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 2000;
+    }
+
 
 }
+
+
 
 
 

@@ -2,11 +2,13 @@ import Link from 'next/link';
 import styles from '../styles/homeLinks.module.scss'
 import { trpc } from "../utils/trpc";
 import Spiner from './Spiner';
+
 const HomeLinks = () => {
 
 
     const{data} = trpc.useQuery(['products.find-category'],{ 
         refetchOnWindowFocus: false,
+        
      })
 
 

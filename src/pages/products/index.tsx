@@ -7,6 +7,7 @@ import Spiner from "../../componets/Spiner";
 import { useRouter } from "next/router";
 import { useEffect , useState } from "react";
 
+
 interface product{
     id:string,
     name:string,
@@ -23,31 +24,49 @@ interface filters{
 const Products:NextPage = () => {
 
     const [showFilters , setShowFilters] = useState<boolean>(false)
+    const [showCategories , setShowCategories] = useState<boolean>(false)
 
-    const [getAllCategory , setgetAllCategory] = useState<filters | any>({
+    const [getAllCategory , setGetAllCategory] = useState<filters | any>({
         cat:'all',
         order:'latest'
     })
+
+
     const router = useRouter()
 
+    function hel(item:string){
+        setGetAllCategory({...getAllCategory , cat:item }),
+        setShowCategories(false)
+    }
+
+    function handleBlur(e:any){
+        e.stopPropagation()
+        setShowCategories(false)
+    }
+    
     const {category} = router.query
 
 
     function handleFilter(e:React.ChangeEvent<HTMLSelectElement>){
         
-        setgetAllCategory({...getAllCategory , order:e.target.value})
+        setGetAllCategory({...getAllCategory , order:e.target.value})
+
     }
 
     useEffect(()=>{
         
-        setgetAllCategory({...getAllCategory , cat:category })
-    
+        setGetAllCategory({...getAllCategory , cat:category })
+ 
     },[category])
 
 
     const {data,error,isLoading} = trpc.useQuery(['products.all' , getAllCategory ],{ 
         refetchOnWindowFocus: false,
+     })
 
+    const cat = trpc.useQuery(['products.find-category'],{ 
+        refetchOnWindowFocus: false,
+        
      })
 
     if(isLoading){
@@ -72,7 +91,20 @@ const Products:NextPage = () => {
                         <option value='latest'>latest</option>
                         <option value='high-low'>high-low</option>
                         <option value='low-high'>low-high</option>
-                    </select>}   
+                    </select>} 
+
+                  { showFilters && <div  className={styles.catDropdown}>
+                        <button   onClick={()=>setShowCategories(!showCategories)}>categories</button>
+
+                        { showCategories && <div className={styles.catItems}>
+
+                            {cat.data?.map((item,index)=><button onClick={()=>hel(item.category)}  key={index}>
+                                {item.category}
+                            </button>)}
+                            
+                        </div>}
+                        
+                    </div>  }
 
 
             </div>
