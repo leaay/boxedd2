@@ -3,7 +3,8 @@
 .dashboardBody{
     display: grid;
     grid-template-columns: minmax(1em , 1fr) minmax(150px , 1200px) minmax(1em , 1fr);
-
+    gap: 2rem;
+    margin: 2rem 0;
     
     justify-items: center;
     button{
