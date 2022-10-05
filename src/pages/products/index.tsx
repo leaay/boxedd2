@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from '../../styles/products.module.scss'
 import Spiner from "../../componets/Spiner";
 import { useRouter } from "next/router";
-import { useEffect , useState } from "react";
+import { FocusEvent, useEffect , useState } from "react";
 
 
 interface product{
@@ -21,27 +21,34 @@ interface filters{
     order: string,
 }
 
+
+
 const Products:NextPage = () => {
 
     const [showFilters , setShowFilters] = useState<boolean>(false)
     const [showCategories , setShowCategories] = useState<boolean>(false)
-
     const [getAllCategory , setGetAllCategory] = useState<filters | any>({
-        cat:'all',
+        cat:'ALL',
         order:'latest'
     })
 
 
     const router = useRouter()
 
-    function handleCategory(item:string){
+    function handleCategory(item:string ){
+       
         setGetAllCategory({...getAllCategory , cat:item }),
         setShowCategories(false)
     }
 
-    function handleBlur(e:any){
-        e.stopPropagation()
-        setShowCategories(false)
+    function handleBlur(e:FocusEvent){
+
+        console.log(e)
+
+        if(e.relatedTarget === null){
+            setShowCategories(false)
+        }
+
     }
     
     const {category} = router.query
@@ -93,12 +100,12 @@ const Products:NextPage = () => {
                         <option value='low-high'>low-high</option>
                     </select>} 
 
-                  { showFilters && <div  className={styles.catDropdown}>
-                        <button   onClick={()=>setShowCategories(!showCategories)}>categories</button>
+                  { showFilters && <div onBlur={(event)=>handleBlur(event)}  className={styles.catDropdown}>
+                        <button className={styles.catBtn}   onClick={()=>setShowCategories(!showCategories)}>{getAllCategory.cat.toUpperCase()}</button>
 
                         { showCategories && 
-                        <div className={styles.catItems}>
-                          <button onClick={()=>handleCategory('all')}>all</button>  
+                        <div  className={styles.catItems}>
+                          <button onClick={()=>handleCategory('all')}>ALL</button>  
                         {cat.data?.map((item,index)=><button onClick={()=>handleCategory(item.category)}  key={index}>
                                 {item.category}
                         </button>)}
