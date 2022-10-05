@@ -35,7 +35,7 @@ import {toast} from 'react-toastify'
     }
 
 
-    const all = trpc.useQuery(['products.all' , {cat:'latest' , order:'latest'}],{ 
+    const all = trpc.useQuery(['products.all' , {cat:'all' , order:'latest'}],{ 
         refetchOnWindowFocus: false,
        
      })
