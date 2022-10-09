@@ -108,6 +108,7 @@
     height: min-content;
     height: auto;
     display: grid;
+    row-gap: .2rem;
     grid-template-rows: min-content min-content;
     cursor: pointer;
     transition: transform ease .2s;

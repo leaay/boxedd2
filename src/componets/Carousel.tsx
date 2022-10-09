@@ -49,17 +49,21 @@ const Carousel = ({items}:prop)=>{
                     animate={{left:`${(index - currentIndex )* 100}%`}}
                     transition={{duration:0.5}}
                     style={{left:`calc(${index} * 100% )`}}
-                    key={index}    
+                    key={index}   
+                    layout 
                     className={styles.slide}>
                     <Image priority src={item} width={1680} height={1118} alt='hero' />
                 </motion.div>)}
                 <motion.div layout className={styles.nav}>
+             
+                         <button onClick={prevSlide} className={styles.arrow} >{'<'}</button>
                         {items.map((item,index)=><motion.button
                             className={currentIndex === index ? styles.navActive : styles.navNormal} 
                             key={index}
                             onClick={()=>setCurrentIndex(index)}
                             layout>
                             </motion.button>)}
+                            <button onClick={nextSlide} className={styles.arrow} >{'>'}</button>
                 </motion.div>
                
 

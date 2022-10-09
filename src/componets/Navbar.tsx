@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import Cart from "./Cart"
 import useCartStore  from "../zustand/store"
 import { useScroll , motion } from "framer-motion"
-
+import { AnimatePresence } from "framer-motion"
 
 const Navbar = () => {
 
@@ -88,7 +88,7 @@ const Navbar = () => {
                 </button>
             </div>
         </motion.nav>
-        {showCart && <Cart close={setShowCart} />}
+        <AnimatePresence>{showCart && <Cart close={setShowCart} />}</AnimatePresence>
         </>
     )
 

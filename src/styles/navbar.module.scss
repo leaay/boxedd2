@@ -39,6 +39,7 @@
     }
     
 }
+
 .activeLink{
 
     position: relative;
@@ -61,7 +62,12 @@
     position: relative;
     height:20px;
     z-index: 2;
-
+    &:hover{
+        box-shadow: 0px 1px 0 0px black;
+    }
+    &:focus{
+        box-shadow: 0px 1px 0 0px black;
+    }
 
 }
 .cartCount{

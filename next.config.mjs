@@ -18,5 +18,6 @@ export default defineNextConfig({
   images: {
       domains: ['i.ibb.co'],
   },
+  scrollRestoration: true,
 });
 

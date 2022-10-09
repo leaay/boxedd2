@@ -33,7 +33,18 @@
 
 
 }
-
+.arrow{
+    color: white;
+    animation: scale .1s ease;
+    &:focus{
+        scale: 1.5;
+        
+        
+    }
+    &:hover{
+        scale: 1.5;
+    }
+}
 .navActive{
     background-color: white;
     width: 1rem;

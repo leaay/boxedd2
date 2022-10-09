@@ -70,7 +70,7 @@ const ProductPage:NextPage = () => {
             <Head>
                 <title>{data?.name}</title>
                 <meta name="description" content={data?.desc} />
-                <link rel="icon" href="/favicon.ico" />
+                
             </Head>
         
         <div className={styles.productBody}>

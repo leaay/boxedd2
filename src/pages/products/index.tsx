@@ -1,6 +1,7 @@
-import { NextPage } from "next"
+import { NextPage  } from "next"
 import { trpc } from "../../utils/trpc";
 import Image from "next/future/image"
+import Head from "next/head";
 import Link from "next/link";
 import styles from '../../styles/products.module.scss'
 import Spiner from "../../componets/Spiner";
@@ -92,6 +93,10 @@ const Products:NextPage = () => {
 
 
     return(
+        <>
+            <Head>
+                <title>PRODUCTS</title>        
+            </Head>
         <div className={styles.body}>
              <div className={styles.filters}>
                 <button onClick={()=>setShowFilters(!showFilters)}>FILTERS <Image src={'/filters.svg'} alt="filters-icon" width={24} height={24}/> </button>
@@ -127,6 +132,7 @@ const Products:NextPage = () => {
                 </Link>)}
             </div>
         </div>
+        </>
     )
 }
 
