@@ -5,6 +5,8 @@ import useCartStore from "../zustand/store";
 import FocusTrap from "focus-trap-react";
 import getStripe from "../utils/getStripe";
 import axios from "axios";
+import { useState } from "react";
+import Spiner from "./Spiner";
 
 interface prop {
     close: (i:boolean)=> void,
@@ -27,10 +29,11 @@ const Cart = ({close}:prop) => {
     const removeItem = useCartStore((state:any) => state.removeItem);
     const addItem = useCartStore((state:any) => state.addItem);
     const minusOne = useCartStore((state:any) => state.minusOne);
+    const [checkoutStarted, setCheckoutStarted] = useState<boolean>(false);
 
 
     const handleCheckout = async () =>{
-        
+        setCheckoutStarted(true)
         const stripe = await getStripe()  
         const response = await axios.post('/api/checkout',{cartItems})
         const data = await response.data
@@ -41,10 +44,15 @@ const Cart = ({close}:prop) => {
 
     return(
         <FocusTrap active={cartItems.length > 0 ? true : false}>
-        <div id="cart"  tabIndex={1} onClick={()=>close(false)} className={styles.full}>
+        <div id="cart"   tabIndex={1} onClick={()=>close(false)} className={styles.full}>
 
             <div onClick={(e)=>e.stopPropagation()} className={styles.cartBody}>
-                <button className={`${styles.cartValueBtn} ${styles.closeBtn}`}  onClick={()=>close(false)}><Image src={'/x.svg'} alt="add" width={11} height={11} /></button>
+
+            <button aria-label="close cart  button" className={`${styles.cartValueBtn} ${styles.closeBtn}`}  onClick={()=>close(false)}><Image src={'/x.svg'} alt="add" width={11} height={11} /></button>
+
+            {cartItems.length > 0 && <a href="#checkout" aria-label="skip to payments" className={styles.skipToCheckout} >skip to checkout</a>}
+
+
 
 
                 {cartItems.length === 0 && <p className={styles.empty}>Cart is empty</p>}
@@ -71,7 +79,7 @@ const Cart = ({close}:prop) => {
 
                 <div className={styles.summary}>
                     <p>total: {cartItems.reduce((acc:number , item:item)=> acc + item.price * item.quantity , 0)} PLN <span>* vat included</span></p>
-                    <button onClick={handleCheckout} className="btn1"> pay </button>
+                    <button onClick={handleCheckout} id='checkout' className="btn1">{ checkoutStarted ? <Spiner size={'10px'} pos={true} /> : 'pay'} </button>
                 </div>  
                 
                 }

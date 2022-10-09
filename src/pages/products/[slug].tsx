@@ -47,7 +47,9 @@ const ProductPage:NextPage = () => {
 
     if(isLoading){
         return(
+            <div style={{height:'90vh'}}>
             <Spiner />
+            </div>
         )
     }
 

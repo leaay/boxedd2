@@ -13,7 +13,7 @@ const Newsletter = () => {
     const notifySucces = ()=>{
         toast.success(`${email} has been added to newsletter`, {
             position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000,
+            autoClose: 5000,
             hideProgressBar: true,
             pauseOnHover: false,
           });

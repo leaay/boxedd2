@@ -117,3 +117,20 @@
     }
 }
 
+.skipToCheckout{
+    width: auto;
+    padding: .5rem;
+    background-color: white;
+    left:30%;
+    z-index: 9999;
+
+    outline: solid 1px black;
+    position: absolute;
+    transform: translateY(-200%);
+    transition: transform .3s ease-in-out;
+    &:focus{
+        transform: translateY(0);
+        text-decoration: underline;
+
+    }
+}

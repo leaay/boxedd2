@@ -4,7 +4,10 @@
 
 .footer{
     width: 100%;
-    padding: 4rem;
+    position: absolute;
+    bottom: -150px;
+    padding: 3rem;
+    
     background-color: rgb(210, 210, 210);
     display: flex;
     align-items: center;

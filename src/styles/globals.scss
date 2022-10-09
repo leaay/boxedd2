@@ -61,6 +61,7 @@ button,input{
   padding: .5rem 1rem ;
   font-size: .8rem;
   width: max-content;
+  position: relative;
   outline: solid 1px black;
   &:hover{
     outline: solid 2px black;
@@ -121,4 +122,8 @@ button,input{
   100% {
     transform: rotate(360deg);
   }
+}
+
+#__next{
+  position: relative;
 }
