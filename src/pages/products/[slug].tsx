@@ -33,11 +33,15 @@ const ProductPage:NextPage = () => {
     }
 
 
+
+
     const router = useRouter()
     const isDesktop = useMedia('(min-width: 960px)');
     const thisPageSlug = router.query.slug
     const cart = useCartStore((state:any) => state.cart);
     const addItem = useCartStore((state:any) => state.addItem);
+
+    
 
 
     const {data,error,isLoading}  = trpc.useQuery(['products.find-one' , thisPageSlug as string ],{
@@ -70,8 +74,10 @@ const ProductPage:NextPage = () => {
             </Head>
         
         <div className={styles.productBody}>
+            <button onClick={()=>router.back()} className={styles.backBtn}><Image alt="arrow" width={15} height={15} src={'/back.svg'} /> back</button>
             <div className={styles.productWrapper}>
                 {isDesktop ? null : <h2>{data?.name}</h2>}
+                
                 <Image alt="product-img" blurDataURL="/blur.png" placeholder="blur" className={styles.img} src={data?.img as string} width={400} height={600} />
                 <div className={styles.info}>
                     <p>{data?.desc}</p>
