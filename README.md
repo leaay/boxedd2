@@ -26,8 +26,19 @@ user can add new porject using modal form :
 
 ![image](https://user-images.githubusercontent.com/103581513/195887267-6fc4aaf8-d340-4ebb-8a2b-f1b0fd8fb847.png)
 
-delete existing products: 
+delete existing products:  
+
 ![image](https://user-images.githubusercontent.com/103581513/195887428-333b0e5c-1479-4655-ab7a-1799bba4125a.png)
+
+or simply log out.
+To test payments and '.../succes' page you can fill fake data and all numbers by spaming '42'
+![image](https://user-images.githubusercontent.com/103581513/195888318-738a37f3-1e61-407e-b148-6282e1093949.png)
+
+
+
+Diffrent funcionality can be discovered by playing.
+
+
 
 
 
